@@ -7,7 +7,7 @@ Template.incident.helpers({
 
 Template.incidents.helpers({
     incidents: function() {
-        return Incidents.find({});
+        return Incidents.find({}, { sort: { active: -1, date: -1 } });
     }
 });
 
@@ -26,11 +26,15 @@ Template.incidentEdit.events({
         event.preventDefault();
 
         var name = event.target.name.value;
+        var active = event.target.active.checked;
+
+        console.log(name, active);
 
         Incidents.update({
             _id: id
         }, { $set: {
-            name: name
+            name: name,
+            active: active
         }});
 
         FlowRouter.go("/incident/" + id);
