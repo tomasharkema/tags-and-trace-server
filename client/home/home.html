@@ -1,0 +1,10 @@
+<template name="home">
+    <div class="panel panel-default">
+        <div class="panel-heading">Ongoing Incidents <small><a href="/incidents/new">New</a></small></div>
+        <ul class="list-group">
+        {{#each ongoningIncidents}}
+            <li class="list-group-item"><a href="/incident/{{_id}}">{{name}}</a></li>
+        {{/each}}
+        </ul>
+    </div>
+</template>
