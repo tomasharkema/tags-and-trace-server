@@ -2,6 +2,17 @@
     <h1>{{incident.name}} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
 </template>
 
+<template name="incidents">
+    <div class="panel panel-default">
+        <div class="panel-heading">Incidents <small><a href="/incidents/new">New</a></small></div>
+        <ul class="list-group">
+            {{#each incidents}}
+                <li class="list-group-item"><a href="/incident/{{_id}}">{{name}}</a> {{#if active }}<span class="label label-danger">Active</span>{{/if}}</li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
 <template name="incidentNew">
     <form class="incidentNew form-horizontal">
 

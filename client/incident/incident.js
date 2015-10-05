@@ -5,6 +5,12 @@ Template.incident.helpers({
     }
 });
 
+Template.incidents.helpers({
+    incidents: function() {
+        return Incidents.find({});
+    }
+});
+
 Template.incidentEdit.helpers({
     incident: function() {
         return Incidents.findOne({ _id: FlowRouter.current().params.incidentId })
@@ -32,7 +38,6 @@ Template.incidentEdit.events({
 });
 
 Template.incidentNew.created = function() {
-    console.log("CREATE");
     this.UUID = guid();
 };
 
@@ -56,7 +61,11 @@ Template.incidentNew.events({
             name: name,
             active: active,
             UUID: guid,
-            from: new Date()
+            from: new Date(),
+            location: {
+                lat: 52,
+                lon: 4
+            }
         }, function(err, id) {
             if (err) return console.error(err);
             FlowRouter.go("/incident/" + id);
