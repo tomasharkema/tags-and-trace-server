@@ -10,4 +10,7 @@ bootstrap
 kadira:flow-router
 less
 kadira:blaze-layout
-twbs:bootstrap
+mizzao:bootstrap-3
+dburles:google-maps
+reactive-var
+u2622:persistent-session

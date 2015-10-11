@@ -1,3 +1,4 @@
+amplify@1.0.0
 autoupdate@1.2.1
 base64@1.0.3
 binary-heap@1.0.3
@@ -9,6 +10,7 @@ callback-hook@1.0.3
 check@1.0.5
 coffeescript@1.0.6
 cosmos:browserify@0.5.1
+dburles:google-maps@1.1.4
 ddp@1.1.0
 deps@1.0.7
 ejson@1.0.6
@@ -31,6 +33,7 @@ meteor@1.1.6
 meteor-platform@1.2.2
 minifiers@1.1.5
 minimongo@1.0.8
+mizzao:bootstrap-3@3.3.1_1
 mobile-status-bar@1.0.3
 mongo@1.1.0
 observe-sequence@1.0.6
@@ -46,7 +49,7 @@ spacebars@1.0.6
 spacebars-compiler@1.0.6
 templating@1.1.1
 tracker@1.0.7
-twbs:bootstrap@3.3.5
+u2622:persistent-session@0.4.3
 ui@1.0.6
 underscore@1.0.3
 url@1.0.4
