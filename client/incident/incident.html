@@ -1,5 +1,5 @@
 <template name="incident">
-    <h1>{{incident.name}} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
+    <h1>{{ incident.label }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
 </template>
 
 <template name="incidents">
@@ -7,7 +7,11 @@
         <div class="panel-heading">Incidents <small><a href="/incidents/new">New</a></small></div>
         <ul class="list-group">
             {{#each incidents}}
-                <li class="list-group-item"><a href="/incident/{{_id}}">{{name}}</a> {{#if active }}<span class="label label-danger">Active</span>{{/if}}</li>
+                <li class="list-group-item">
+                    <a href="/incident/{{_id}}">
+                        {{label}}
+                    </a>
+                </li>
             {{/each}}
         </ul>
     </div>
@@ -17,26 +21,9 @@
     <form class="incidentNew form-horizontal">
 
         <div class="form-group">
-            <label for="uuid" class="col-sm-2 control-label">UUID</label>
+            <label for="label" class="col-sm-2 control-label">Label</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="uuid" value="{{ UUID }}" disabled>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="name">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" name="active"> Active
-                    </label>
-                </div>
+                <input type="text" class="form-control" id="label" placeholder="label">
             </div>
         </div>
 
@@ -52,29 +39,15 @@
     <form class="incidentEdit form-horizontal">
 
         <div class="form-group">
-            <label for="uuid" class="col-sm-2 control-label">UUID</label>
+            <label for="label" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="uuid" value="{{ incident.UUID }}" disabled>
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="name" class="col-sm-2 control-label">Name</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="name" value="{{ incident.name }}">
+                <input type="text" class="form-control" id="label" placeholder="label" value="{{ incident.label }}">
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
                 <div class="checkbox">
-                    <label>
-                        {{#if incident.active}}
-                            <input type="checkbox" name="active" checked> Active
-                        {{else}}
-                            <input type="checkbox" name="active"> Active
-                        {{/if}}
-                    </label>
                 </div>
             </div>
         </div>

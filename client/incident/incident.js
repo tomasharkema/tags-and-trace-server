@@ -25,29 +25,17 @@ Template.incidentEdit.events({
 
         event.preventDefault();
 
-        var name = event.target.name.value;
-        var active = event.target.active.checked;
+        var label = event.target.label.value;
 
         console.log(name, active);
 
         Incidents.update({
             _id: id
         }, { $set: {
-            name: name,
-            active: active
+            label: label
         }});
 
         FlowRouter.go("/incident/" + id);
-    }
-});
-
-Template.incidentNew.created = function() {
-    this.UUID = guid();
-};
-
-Template.incidentNew.helpers({
-    UUID: function() {
-        return Template.instance().UUID
     }
 });
 
@@ -55,21 +43,15 @@ Template.incidentNew.events({
     "submit .incidentNew": function(event) {
         event.preventDefault();
 
-        var name = event.target.name.value;
-        var active = event.target.active.checked;
-        var guid = Template.instance().UUID;
+        var label = event.target.label.value;
 
-        console.log(name, active, guid);
+        console.log(label, guid);
 
         Incidents.insert({
-            name: name,
-            active: active,
-            UUID: guid,
-            from: new Date(),
-            location: {
-                lat: 52,
-                lon: 4
-            }
+            label: label,
+            dateTimeStart: new Date(),
+            dateTimeEnd: null,
+            workflows: []
         }, function(err, id) {
             if (err) return console.error(err);
             FlowRouter.go("/incident/" + id);
