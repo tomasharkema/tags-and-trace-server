@@ -13,7 +13,6 @@ Meteor.startup(function() {
     }
 });
 
-
 GoogleMaps.ready('locationTestMap', function(map) {
 
     var testLocation = Session.get(testCurrentLocation);
@@ -34,8 +33,8 @@ GoogleMaps.ready('locationTestMap', function(map) {
     });
 });
 
-Template.testLocation.helpers({
-    incidents: ongoingIncidents(),
+Template['testLocation'].helpers({
+    incidents: Utils.ongoingIncidents(),
     exampleMapOptions: function() {
         if (GoogleMaps.loaded()) {
             var testLocation = Session.get(testCurrentLocation);
@@ -53,7 +52,7 @@ Template.testLocation.helpers({
     }
 });
 
-Template.testLocation.events({
+Template['testLocation'].events({
    "click .testMap": function() {
        var location = Session.get(testCurrentLocation);
        Meteor.call("location", Session.get("clientId"), Session.get(testCurrentIncident), location.lat, location.lon);

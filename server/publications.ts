@@ -4,5 +4,5 @@ Meteor.publish("incidents", function() {
 });
 
 Meteor.publish("ongoingIncidents", function() {
-    return ongoingIncidents();
+    return Utils.ongoingIncidents();
 });
