@@ -1,13 +1,10 @@
 
-//Incidents = new Mongo.Collection("incidents");
-//Location = new Mongo.Collection("locations");
-
 interface IncidentDAO {
-    _id?: string;
-    label: string;
-    dateTimeStart: Date;
-    dateTimeEnd?: Date;
-    workflows: Array<string>;
+    _id?: string
+    label: string
+    dateTimeStart: Date
+    dateTimeEnd?: Date
+    workflows: Array<string>
 }
 
 declare var Incidents: Mongo.Collection<IncidentDAO>;
@@ -19,7 +16,7 @@ class GpsData {
     lon: number;
     accuracy: number;
 
-    constructor(lat:number, lon:number, accuracy:number) {
+    constructor(lat: number, lon: number, accuracy: number) {
         this.lat = lat;
         this.lon = lon;
         this.accuracy = accuracy;
