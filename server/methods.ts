@@ -14,5 +14,9 @@ Meteor.methods({
         let location = new LocationData(clientId, incidentId, gpsData, new Date());
 
         Locations.insert(location);
+    },
+    "commitAnswer": function(value, questionId, tagRecordId) {
+        var answer = new Answer(value, questionId, tagRecordId);
+        Answers.insert(answer)
     }
 });

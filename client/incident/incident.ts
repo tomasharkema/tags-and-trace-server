@@ -3,6 +3,9 @@
 Template['incident'].helpers({
     incident: function() {
         return Incidents.findOne({ _id: FlowRouter.current().params.incidentId })
+    },
+    answers: function() {
+        return Answers.find({})
     }
 });
 
