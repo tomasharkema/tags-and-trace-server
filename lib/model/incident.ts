@@ -1,14 +1,12 @@
-class Incident implements IncidentDAO {
+class Incident {
     _id: string;
     label:string;
     dateTimeStart:Date;
     dateTimeEnd: Date;
-    workflows:Array<string>;
 
-    constructor(label: string, dateTimeStart: Date, workflows: Array<string>) {
+    constructor(label: string, dateTimeStart: Date) {
         this.label = label;
         this.dateTimeStart = dateTimeStart;
-        this.workflows = workflows;
     }
 }
 

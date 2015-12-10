@@ -29,11 +29,8 @@ Template['incidentNew'].events({
 
         console.log(label);
 
-        var incident = new Incident(label, new Date(), []);
+        //var incident = new Incident(label, new Date(), []);
 
-        Incidents.insert(incident, function(err, id) {
-            if (err) return console.error(err);
-            FlowRouter.go("/incident/" + id);
-        });
+//        });
     }
 });

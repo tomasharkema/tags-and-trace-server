@@ -3,3 +3,5 @@ class QuestionOption {
     label: string;
     value: string;
 }
+
+this.QuestionOption = QuestionOption;
