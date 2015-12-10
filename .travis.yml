@@ -12,4 +12,4 @@ before_script:
 
 env: TEST_COMMAND=mupx
 
-script: "mupx"
+script: "mupx deploy"
