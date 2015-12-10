@@ -8,5 +8,7 @@ before_install:
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
 
-after_success:
-  - "mupx"
+env: TEST_COMMAND=mupx
+
+#after_success:
+#  - "mupx"
