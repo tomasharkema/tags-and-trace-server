@@ -3,7 +3,10 @@ node_js:
   - "4.1"
 
 before_install:
-  - "curl -L http://git.io/ejPSng | /bin/sh"
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-meteor-packages/master/configure.sh | /bin/sh"
+
+before_script:
+  - "export PATH=$HOME/.meteor:$PATH"
 
 after_success:
   - "mupx"
