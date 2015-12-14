@@ -1,5 +1,5 @@
 <template name="incident">
-    <h1>{{ incident.label }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
+    <h1>{{ incident.name }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
 
     <hr>
 
@@ -18,7 +18,7 @@
             {{#each incidents}}
                 <li class="list-group-item">
                     <a href="/incident/{{_id}}">
-                        {{label}}
+                        {{name}}
                     </a>
                 </li>
             {{/each}}
@@ -50,7 +50,7 @@
         <div class="form-group">
             <label for="label" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="label" placeholder="label" value="{{ incident.label }}">
+                <input type="text" class="form-control" id="name" placeholder="label" value="{{ incident.name }}">
             </div>
         </div>
 
