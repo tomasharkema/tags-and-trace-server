@@ -1,3 +1,4 @@
+/// <reference path="collections.ts"/>
 class LocationData implements LocationDAO {
     fieldAgent:string;
     incidentId:string;

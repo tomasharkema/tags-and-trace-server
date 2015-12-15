@@ -1,3 +1,4 @@
+/// <reference path="../model/collections.ts"/>
 
 declare var Double: any;
 

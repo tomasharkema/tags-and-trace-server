@@ -1,3 +1,4 @@
+/// <reference path="collections.ts"/>
 
 class Answer {
     _id: string;
@@ -12,8 +13,6 @@ class Answer {
         this.tagrecordId = tagrecordId;
     }
 }
-
-this.Answer = Answer;
 
 declare var Answers: Mongo.Collection<Answer>;
 Answers = new Mongo.Collection<Answer>('answers');

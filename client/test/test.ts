@@ -1,3 +1,6 @@
+/// <reference path="../../model/collections.ts"/>
+/// <reference path="../../model/functions.ts"/>
+/// <reference path="../../typings/google/google.d.ts"/>
 
 const centerLat = 52.4513141;
 const centerLon = 4.8095458000000235;

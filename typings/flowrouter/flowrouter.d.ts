@@ -9,6 +9,7 @@ interface FlowRouterStatic {
 
 interface FlowRouterParams {
     incidentId: string;
+    workflowId: string;
 }
 
 interface FlowRouter {

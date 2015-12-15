@@ -1,5 +1,6 @@
 /// <reference path="../../typings/tsd.d.ts" />
+///<reference path="../../model/functions.ts"/>
 
 Template['home'].helpers({
-    ongoningIncidents: Utils.ongoingIncidents()
+    ongoingIncidents: Utils.ongoingIncidents()
 });

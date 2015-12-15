@@ -1,3 +1,10 @@
+/// <reference path="../typings/meteor/meteor.d.ts"/>
+/// <reference path="incident.ts"/>
+/// <reference path="workflow.ts"/>
+/// <reference path="question.ts"/>
+/// <reference path="answer.ts"/>
+/// <reference path="LocationData.ts"/>
+/// <reference path="questionoption.ts"/>
 
 declare var Incidents: Mongo.Collection<Incident>;
 Incidents = new Mongo.Collection<Incident>('incidents');

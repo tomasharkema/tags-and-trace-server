@@ -1,4 +1,5 @@
 /// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../model/collections.ts" />
 
 Template['incident'].helpers({
     incident: function() {

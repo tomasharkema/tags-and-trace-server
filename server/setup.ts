@@ -1,3 +1,4 @@
+/// <reference path="../model/collections.ts"/>
 
 Meteor.startup(function() {
     if (Incidents.find().count() === 0) {

@@ -1,9 +1,10 @@
+/// <reference path="../model/collections.ts"/>
 class Utils {
     static ongoingIncidents() {
         var today = new Date();
 
         var query = {
-            "from": { $lt: today },
+            "from": { $lte: today },
             "active": true
         };
 

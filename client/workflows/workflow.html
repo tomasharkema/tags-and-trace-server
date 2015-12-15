@@ -1,23 +1,17 @@
-<template name="incident">
-    <h1>{{ incident.label }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
+<template name="workflow">
+    <h1>{{ workflow.label }} <small><a href="/workflow/{{ workflow._id }}/edit">Edit</a></small></h1>
 
     <hr>
 
-    <h2>Workflow Answers</h2>
-
-    {{#each answers}}
-        <p>Wat is 1 + 1?</p>
-        <p>{{value}}</p>
-    {{/each}}
 </template>
 
-<template name="incidents">
+<template name="workflows">
     <div class="panel panel-default">
-        <div class="panel-heading">Incidents <small><a href="/incidents/new">New</a></small></div>
+        <div class="panel-heading">Workflows <small><a href="/workflows/new">New</a></small></div>
         <ul class="list-group">
-            {{#each incidents}}
+            {{#each workflows}}
                 <li class="list-group-item">
-                    <a href="/incident/{{_id}}">
+                    <a href="/workflow/{{_id}}">
                         {{label}}
                     </a>
                 </li>
@@ -26,8 +20,8 @@
     </div>
 </template>
 
-<template name="incidentNew">
-    <form class="incidentNew form-horizontal">
+<template name="workflowNew">
+    <form class="workflowNew form-horizontal">
 
         <div class="form-group">
             <label for="label" class="col-sm-2 control-label">Label</label>
@@ -44,13 +38,13 @@
     </form>
 </template>
 
-<template name="incidentEdit">
-    <form class="incidentEdit form-horizontal">
+<template name="workflowEdit">
+    <form class="workflowEdit form-horizontal">
 
         <div class="form-group">
             <label for="label" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="label" value="{{ incident.label }}">
+                <input type="text" class="form-control" id="name" placeholder="label" value="{{ workflow.label }}">
             </div>
         </div>
 

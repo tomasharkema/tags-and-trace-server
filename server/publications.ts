@@ -1,3 +1,7 @@
+/// <reference path="../typings/tsd.d.ts"/>
+/// <reference path="../typings/meteor/meteor.d.ts"/>
+/// <reference path="../model/collections.ts"/>
+/// <reference path="../model/functions.ts"/>
 
 Meteor.publish("incidents", function() {
     return Incidents.find({});

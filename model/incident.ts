@@ -1,3 +1,5 @@
+/// <reference path="collections.ts"/>
+
 class Incident {
     _id: string;
     label:string;
