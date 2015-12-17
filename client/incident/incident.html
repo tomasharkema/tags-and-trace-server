@@ -1,14 +1,6 @@
 <template name="incident">
     <h1>{{ incident.label }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
 
-    <hr>
-
-    <h2>Workflow Answers</h2>
-
-    {{#each answers}}
-        <p>Wat is 1 + 1?</p>
-        <p>{{value}}</p>
-    {{/each}}
 </template>
 
 <template name="incidents">

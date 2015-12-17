@@ -4,10 +4,9 @@ var Utils = (function () {
     Utils.ongoingIncidents = function () {
         var today = new Date();
         var query = {
-            "from": { $lte: today },
-            "active": true
+            "dateTimeStart": { $lte: today }
         };
-        return Incidents.find(query, { sort: { date: -1 } });
+        return Incidents.find(query, { sort: { dateTimeStart: -1 } });
     };
     Utils.guid = function () {
         function s4() {
