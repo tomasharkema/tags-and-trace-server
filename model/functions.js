@@ -1,3 +1,5 @@
+// <reference path="collections.ts"/>
+// <reference path="../typings/tsd.d.ts"/>
 var Utils = (function () {
     function Utils() {
     }

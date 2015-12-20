@@ -1,3 +1,6 @@
+/// <reference path="../lib/collections.ts"/>
+/// <reference path="../typings/tsd.d.ts"/>
+/// <reference path="../typings/meteor/meteor.d.ts"/>
 
 const clientId = "clientId";
 
