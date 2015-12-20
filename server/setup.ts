@@ -2,7 +2,7 @@
 /// <reference path="../typings/tsd.d.ts"/>
 Meteor.startup(function() {
     if (Incidents.find().count() === 0) {
-        console.log("LEEG!");
+        console.log("First run, populating db!");
 
         var vandaag:Date = new Date();
         var later:Date = new Date();
