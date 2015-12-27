@@ -28,8 +28,8 @@ GoogleMaps.ready('locationTestMap', function(map) {
     google.maps.event.addListener(marker, "dragend", function() {
         var position = marker.getPosition();
         Session.set(testCurrentLocation, {
-            lat: position.J,
-            lon: position.M
+            lat: position.lat(),
+            lon: position.lng()
         });
     });
 });

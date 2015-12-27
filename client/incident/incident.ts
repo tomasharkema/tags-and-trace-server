@@ -2,7 +2,7 @@
 
 Template['incident'].helpers({
     incident: function() {
-        return Incidents.findOne({ _id: FlowRouter.current().params.incidentId })
+        return Incidents.findOne({ _id: FlowRouter.current().params['incidentId'] })
     }
 });
 
@@ -14,13 +14,13 @@ Template['incidents'].helpers({
 
 Template['incidentEdit'].helpers({
     incident: function() {
-        return Incidents.findOne({ _id: FlowRouter.current().params.incidentId })
+        return Incidents.findOne({ _id: FlowRouter.current().params['incidentId'] })
     }
 });
 
 Template['incidentEdit'].events({
     "submit .incidentEdit": function(event) {
-        var id = FlowRouter.current().params.incidentId;
+        var id = FlowRouter.current().params['incidentId'];
 
         console.log("Submit", id);
 
