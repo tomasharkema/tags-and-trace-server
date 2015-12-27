@@ -6,14 +6,6 @@
 /// <reference path="./model/questionoption.ts"/>
 /// <reference path="./model/workflow.ts"/>
 
-declare var Incidents: Mongo.Collection<Incident>;
-Incidents = new Mongo.Collection<Incident>('incidents');
-this.Incidents = Incidents;
-
-declare var Workflows: Mongo.Collection<Workflow>;
-Workflows = new Mongo.Collection<Workflow>('workflows');
-this.Workflows = Workflows;
-
 declare var Questions: Mongo.Collection<Question>;
 Questions = new Mongo.Collection<Question>('questions');
 this.Questions = Questions;

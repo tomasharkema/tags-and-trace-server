@@ -13,3 +13,7 @@ class Incident {
 }
 
 this.Incident = Incident;
+
+declare var Incidents: Mongo.Collection<Incident>;
+Incidents = new Mongo.Collection<Incident>('incidents');
+this.Incidents = Incidents;
