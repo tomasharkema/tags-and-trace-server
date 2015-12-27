@@ -2,3 +2,5 @@
 .idea
 .meteor/local
 .meteor/meteorite
+nohup.out
+out/

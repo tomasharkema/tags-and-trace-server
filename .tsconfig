@@ -1,0 +1,6 @@
+ {
+    "target": "es5",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "jsx": "preserve"
+ }

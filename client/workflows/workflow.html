@@ -1,0 +1,82 @@
+<template name="workflow">
+    <h1>{{ workflow.label }} <small><a href="/workflow/{{ workflow._id }}/edit">Edit</a></small></h1>
+
+    <hr>
+
+</template>
+
+<template name="workflows">
+    <div class="panel panel-default">
+        <div class="panel-heading">Workflows <small><a href="/workflows/new">New</a></small></div>
+        <ul class="list-group">
+            {{#each workflows}}
+                <li class="list-group-item">
+                    <a href="/workflow/{{_id}}">
+                        {{label}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>
+
+<template name="workflowNew">
+    <form class="workflowNew form-horizontal">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h2>New</h2>
+                <label for="label">Name</label>
+                <input type="text" class="form-control" id="label" placeholder="label">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label for="sel1">Link to incident</label>
+                <select class="form-control" id="incident">
+                    {{#each incidents}}
+                        <option value="{{_id}}">{{label}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</template>
+
+<template name="workflowEdit">
+
+    <form class="workflowEdit form-horizontal">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h2>Edit</h2>
+                <label for="label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="label" value="{{ workflow.label }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label for="sel1">Link to incident</label>
+                <select class="form-control" id="incident">
+                    {{#each incidents}}
+                        <option value="{{_id}}">{{label}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</template>

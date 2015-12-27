@@ -1,0 +1,21 @@
+<template name="test">
+    <a href="/test/location">Api Location Test</a>
+</template>
+
+<template name="testLocation">
+
+    <select id="selectedIncident">
+        {{#each incidents}}
+            <option value="{{_id}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+
+    <div class="map-container">
+        {{> googleMap name="locationTestMap" options=exampleMapOptions}}
+    </div>
+
+    <p>lat: {{ currentLocation.lat }}</p>
+    <p>lon: {{ currentLocation.lon }}</p>
+    <button class="testMap">TEST</button>
+</template>
