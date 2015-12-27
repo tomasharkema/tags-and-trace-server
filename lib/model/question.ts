@@ -14,3 +14,7 @@ class Question {
 }
 
 this.Question = Question;
+
+declare var Questions: Mongo.Collection<Question>;
+Questions = new Mongo.Collection<Question>('questions');
+this.Questions = Questions;

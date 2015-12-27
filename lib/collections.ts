@@ -6,10 +6,6 @@
 /// <reference path="./model/questionoption.ts"/>
 /// <reference path="./model/workflow.ts"/>
 
-declare var Questions: Mongo.Collection<Question>;
-Questions = new Mongo.Collection<Question>('questions');
-this.Questions = Questions;
-
 class GpsData {
     lat: number;
     lon: number;
