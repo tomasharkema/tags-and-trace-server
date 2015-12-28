@@ -1,5 +1,5 @@
 class Activity {
-    
+
     url: String;
     date: Date;
     title: String;

@@ -1,0 +1,11 @@
+<template name="breadcrumb">
+    <ol class="breadcrumb">
+        {{#each parent}}
+            <!--{{> breadcrumb-element }}-->
+        {{/each}}
+    </ol>
+</template>
+
+<template name="breadcrumb-element">
+    <li {{ attributes }}></li>
+</template>
