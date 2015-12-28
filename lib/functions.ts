@@ -3,8 +3,11 @@ class Utils {
         var today = new Date();
 
         var query = {
-            "from": { $lt: today },
-            "active": true
+            dateTimeStart: { $lt: today },
+            $or: [
+                { dateTimeEnd: { $gt: today } },
+                { dateTimeEnd: null }
+            ]
         };
 
         return Incidents.find(query, { sort: { date: -1 } })
