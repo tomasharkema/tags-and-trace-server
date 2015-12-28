@@ -1,4 +1,16 @@
 <template name="home">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Activity</div>
+        <ul class="list-group">
+            {{#each activity}}
+                <li class="list-group-item">
+                    <a href="{{url}}">{{ title }} - <i>{{ livestamp date }}</i></a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
     <div class="panel panel-default">
         <div class="panel-heading">Ongoing Incidents <small><a href="/incidents/new">New</a></small></div>
         <ul class="list-group">

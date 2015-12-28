@@ -6,7 +6,7 @@ class Answer {
     questionId: string;
     date: Date;
 
-    constructor(value: string, date: Date, questionId:string) {
+    constructor(value: string, date: Date, questionId: string) {
         this.value = value;
         this.date = date;
         this.questionId = questionId;

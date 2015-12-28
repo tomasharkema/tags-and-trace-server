@@ -19,8 +19,8 @@
         <div class="panel-heading">Answers</div>
         <ul class="list-group">
             {{#each answers}}
-                <li class="list-group-item">
-                    <a href="/workflow/{{_id}}">
+                <li class="list-group-item" id="a-{{_id}}">
+                    <a href="/answer/{{_id}}">
                         {{ value }}
                     </a>
                 </li>
