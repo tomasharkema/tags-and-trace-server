@@ -1,5 +1,6 @@
 // <reference path="../collections.ts"/>
 // <reference path="../../typings/tsd.d.ts"/>
+
 class Workflow {
     _id: string;
     label: string;
@@ -12,3 +13,7 @@ class Workflow {
 }
 
 this.Workflow = Workflow;
+
+declare var Workflows: Mongo.Collection<Workflow>;
+Workflows = new Mongo.Collection<Workflow>('workflows');
+this.Workflows = Workflows;

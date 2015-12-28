@@ -28,15 +28,15 @@ GoogleMaps.ready('locationTestMap', function(map) {
     google.maps.event.addListener(marker, "dragend", function() {
         var position = marker.getPosition();
         Session.set(testCurrentLocation, {
-            lat: position.J,
-            lon: position.M
+            lat: position.lat(),
+            lon: position.lng()
         });
     });
 });
 
-Template.testLocation.helpers({
+Template['testLocation'].helpers({
     incidents: function(){
-        return ongoingIncidents()
+        return Utils.ongoingIncidents()
     },
     exampleMapOptions: function() {
         if (GoogleMaps.loaded()) {
@@ -55,7 +55,7 @@ Template.testLocation.helpers({
     }
 });
 
-Template.testLocation.events({
+Template['testLocation'].events({
    "click .testMap": function() {
        var location = Session.get(testCurrentLocation);
        Meteor.call("location", Session.get("clientId"), Session.get(testCurrentIncident), location.lat, location.lon);
