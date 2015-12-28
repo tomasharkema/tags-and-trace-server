@@ -1,0 +1,46 @@
+<template name="question">
+
+    <h1>{{ question.label }} <small> — <a href="/question/{{ question._id }}/edit">Edit</a></small></h1>
+
+    <hr>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Options</div>
+        <ul class="list-group">
+            {{#each question.options}}
+                <li class="list-group-item">
+                    {{ this }}
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Answers</div>
+        <ul class="list-group">
+            {{#each answers}}
+                <li class="list-group-item">
+                    <a href="/workflow/{{_id}}">
+                        {{ value }}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+</template>
+
+<template name="questions">
+    <div class="panel panel-default">
+        <div class="panel-heading">Questions <small><a href="/questions/new">New</a></small></div>
+        <ul class="list-group">
+            {{#each questions}}
+                <li class="list-group-item">
+                    <a href="/question/{{ question._id }}">
+                        {{ question.label }}
+                    </a><small> — {{ workflow.label }} — {{ incident.label }}</small>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</template>

@@ -3,6 +3,18 @@
 
     <hr>
 
+    <div class="panel panel-default">
+        <div class="panel-heading">Questions <small><a href="/questions/new?workflow={{ workflow._id }}">New</a></small></div>
+        <ul class="list-group">
+            {{#each questions}}
+                <li class="list-group-item">
+                    <a href="/question/{{_id}}">
+                        {{label}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
 </template>
 
 <template name="workflows">
@@ -11,9 +23,9 @@
         <ul class="list-group">
             {{#each workflows}}
                 <li class="list-group-item">
-                    <a href="/workflow/{{_id}}">
-                        {{label}}
-                    </a>
+                    <a href="/workflow/{{ workflow._id }}">
+                        {{ workflow.label }}
+                    </a><small> — {{ incident.label }}</small>
                 </li>
             {{/each}}
         </ul>

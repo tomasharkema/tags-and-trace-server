@@ -4,13 +4,12 @@ class Answer {
     _id: string;
     value: string;
     questionId: string;
-    tagrecordId: string;
+    date: Date;
 
-
-    constructor(value:string, questionId:string, tagrecordId:string) {
+    constructor(value: string, date: Date, questionId:string) {
         this.value = value;
+        this.date = date;
         this.questionId = questionId;
-        this.tagrecordId = tagrecordId;
     }
 }
 

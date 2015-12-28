@@ -2,12 +2,20 @@
 Template['workflow'].helpers({
     workflow: function() {
         return Workflows.findOne({ _id: FlowRouter.current().params['workflowId'] })
+    },
+    questions: function() {
+        return Questions.find({ workflowId: FlowRouter.current().params['workflowId'] });
     }
 });
 
 Template['workflows'].helpers({
     workflows: function() {
-        return Workflows.find({}, { sort: { active: -1, date: -1 } });
+        return Workflows.find({}, { sort: { active: -1, date: -1 } }).map(function(workflow) {
+            return {
+                workflow: workflow,
+                incident: Incidents.findOne({_id: workflow.incidentId})
+            }
+        });
     }
 });
 
