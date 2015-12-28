@@ -9,11 +9,7 @@
         <ul class="list-group">
             {{#each activity}}
                 <li class="list-group-item">
-                    {{ date }} -
-                    {{ title }}
-                    <!--<a href="/workflow/{{_id}}">-->
-                        <!--{{label}}-->
-                    <!--</a>-->
+                    <a href="{{url}}">{{ title }} - <i>{{ livestamp date }}</i></a>
                 </li>
             {{/each}}
         </ul>

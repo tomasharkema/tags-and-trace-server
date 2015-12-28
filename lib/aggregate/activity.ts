@@ -1,15 +1,17 @@
 class Activity {
 
     static forIncident(incidentId: string) {
+
         var workflows = Workflows.find({incidentId: incidentId})
-            .map(function(workflow) {
+            .map((workflow, number, cursor) => {
                 return Questions.find({workflowId: workflow._id})
-                    .map(function(question) {
+                    .map((question, number, cursor) => {
                         return Answers.find({questionId: question._id})
-                            .map(function(answer) {
+                            .map((answer, number, cursor) => {
                                 return {
+                                    url: "/answer/"+answer._id,
                                     date: answer.date,
-                                    title: "_ heeft antwoord gegeven op <strong>"+question.label+"</strong>: " + question.
+                                    title: "_ heeft antwoord gegeven op "+question.label+": " + answer.value
                                 }
                             })
                     });
