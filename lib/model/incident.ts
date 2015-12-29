@@ -1,10 +1,14 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Incident {
+class Incident implements Model {
     _id: string;
     label: string;
     dateTimeStart: Date;
     dateTimeEnd: Date;
+
+    public name():string {
+        return "incident";
+    }
 
     constructor(label: string, dateTimeStart: Date) {
         this.label = label;

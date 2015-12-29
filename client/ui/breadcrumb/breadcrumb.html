@@ -1,7 +1,7 @@
 <template name="breadcrumb">
     <ol class="breadcrumb">
         {{#each parents}}
-            <li {{ attributes }}><a href="{{url}}">{{name}}</a></li>
+            <li {{ attributes }}><a href="{{ url }}">{{ name }}</a></li>
         {{/each}}
     </ol>
 </template>

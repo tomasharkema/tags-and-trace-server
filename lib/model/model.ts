@@ -1,0 +1,3 @@
+interface Model {
+    name(): string;
+}

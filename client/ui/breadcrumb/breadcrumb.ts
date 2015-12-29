@@ -12,13 +12,22 @@ class Breadcrumb {
 }
 
 Template['breadcrumb'].helpers({
-    parents: () => {
-        return [
-            new Breadcrumb("Home", "/", false),
-            new Breadcrumb("Home", "/", false)
-        ]
+    parents: function(ctx) {
+
+        var incident = cast(this, Incident);
+
+        if (incident.name() === "incident") {
+            console.log("Dealin' with an incident here");
+
+            return [
+                new Breadcrumb("Home", "/", false),
+                new Breadcrumb((<Incident>this).label, "/", true)
+            ]
+        }
+
+        return []
     },
-    attributes: () => {
+    attributes: function() {
         return {
             "class": this.active ? "" : "active"
         }
