@@ -1,12 +1,15 @@
 // <reference path="../collections.ts"/>
 // <reference path="../../typings/tsd.d.ts"/>
 
-class Workflow {
+class Workflow extends Model {
     _id: string;
     label: string;
     incidentId: string;
 
+    __name__: string = "workflow";
+
     constructor(label: string, incidentId: string) {
+        super();
         this.label = label;
         this.incidentId = incidentId;
     }

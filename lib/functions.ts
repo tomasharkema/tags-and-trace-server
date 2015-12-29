@@ -22,17 +22,6 @@ class Utils {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     }
-
-    static getClassName(el: any) {
-        console.log(el, el["constructor"]);
-        var funcNameRegex = /function (.{1,})\(/;
-        var results  = (funcNameRegex).exec(el["constructor"].toString());
-        return (results && results.length > 1) ? results[1] : "";
-    }
-}
-
-function cast<T>(object: Object, type: Object): T {
-    return new type(object);
 }
 
 this.Utils = Utils;

@@ -12,20 +12,34 @@ class Breadcrumb {
 }
 
 Template['breadcrumb'].helpers({
-    parents: function(ctx) {
+    parents: function() {
 
-        var incident = cast(this, Incident);
+        var elements: Array<Breadcrumb> = [
+            new Breadcrumb("Home", "/", true)
+        ];
 
-        if (incident.name() === "incident") {
-            console.log("Dealin' with an incident here");
+        var incident: Incident = cast<Incident>(this, Incident);
 
-            return [
-                new Breadcrumb("Home", "/", false),
-                new Breadcrumb((<Incident>this).label, "/", true)
-            ]
+        if (incident)
+            elements.push(new Breadcrumb(incident.label, "/incident/"+incident._id, false));
+
+        var workflow: Workflow = cast<Workflow>(this, Workflow);
+        if (workflow) {
+            var incident = Incidents.findOne(workflow.incidentId);
+            elements.push(new Breadcrumb(incident.label, "/incident/"+incident._id, true));
+            elements.push(new Breadcrumb(workflow.label, "/workflow/"+workflow._id, false));
         }
 
-        return []
+        var question = cast<Question>(this, Question);
+        if (question) {
+            var workflow = Workflows.findOne(question.workflowId);
+            var incident = Incidents.findOne(workflow.incidentId);
+            elements.push(new Breadcrumb(incident.label, "/incident/"+incident._id, true));
+            elements.push(new Breadcrumb(workflow.label, "/workflow/"+workflow._id, true));
+            elements.push(new Breadcrumb(question.label, "/question/"+question._id, false));
+        }
+
+        return elements
     },
     attributes: function() {
         return {

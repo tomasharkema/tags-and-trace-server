@@ -1,16 +1,15 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Incident implements Model {
+class Incident extends Model {
     _id: string;
     label: string;
     dateTimeStart: Date;
     dateTimeEnd: Date;
 
-    public name():string {
-        return "incident";
-    }
+    __name__: string = "incident";
 
     constructor(label: string, dateTimeStart: Date) {
+        super();
         this.label = label;
         this.dateTimeStart = dateTimeStart;
         this.dateTimeEnd = null;
