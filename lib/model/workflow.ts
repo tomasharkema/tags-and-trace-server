@@ -1,7 +1,7 @@
 // <reference path="../collections.ts"/>
 // <reference path="../../typings/tsd.d.ts"/>
 
-class Workflow extends Model {
+class Workflow implements Nameable {
     _id: string;
     label: string;
     incidentId: string;
@@ -9,7 +9,6 @@ class Workflow extends Model {
     __name__: string = "workflow";
 
     constructor(label: string, incidentId: string) {
-        super();
         this.label = label;
         this.incidentId = incidentId;
     }

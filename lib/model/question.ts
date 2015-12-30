@@ -1,6 +1,6 @@
 // <reference path="../collections.ts"/>
 // <reference path="../../typings/tsd.d.ts"/>
-class Question extends Model {
+class Question implements Nameable {
     _id: string;
     label: string;
     options: Array<string>;
@@ -9,7 +9,6 @@ class Question extends Model {
     __name__: string = "question";
 
     constructor(label:string, options:Array<string>, workflowId: string) {
-        super();
         this.label = label;
         this.options = options;
         this.workflowId = workflowId;

@@ -1,6 +1,6 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Incident extends Model {
+class Incident implements Nameable {
     _id: string;
     label: string;
     dateTimeStart: Date;
@@ -9,7 +9,6 @@ class Incident extends Model {
     __name__: string = "incident";
 
     constructor(label: string, dateTimeStart: Date) {
-        super();
         this.label = label;
         this.dateTimeStart = dateTimeStart;
         this.dateTimeEnd = null;

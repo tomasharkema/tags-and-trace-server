@@ -1,11 +1,8 @@
-class Model {
-    static __name__: string;
+interface Nameable {
+    __name__: string;
 }
 
-this.Model = Model;
-
-
-function cast<T>(object: any, type: any): T {
+function cast<T extends Nameable>(object: any, type: any): T {
     if (object["__name__"] === undefined || new type().__name__ !== object["__name__"])
         return null;
 

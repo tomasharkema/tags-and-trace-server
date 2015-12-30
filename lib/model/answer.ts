@@ -1,6 +1,6 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Answer extends Model {
+class Answer implements Nameable {
     _id: string;
     value: string;
     questionId: string;
@@ -9,7 +9,6 @@ class Answer extends Model {
     __name__: string = "answer";
 
     constructor(value: string, date: Date, questionId: string) {
-        super();
         this.value = value;
         this.date = date;
         this.questionId = questionId;
