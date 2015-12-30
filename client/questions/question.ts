@@ -31,7 +31,6 @@ Template['questionEdit'].helpers({
         return Workflows.find();
     },
     incident: function() {
-        console.log(this);
         return Incidents.findOne(this.incidentId);
     },
     workflowSelected: function() {
