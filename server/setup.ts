@@ -32,10 +32,10 @@ Meteor.startup(function() {
         let questionOption3 = new QuestionOption("Nee, maar wel licht gewond", questionId);
         let questionOptionId3 = QuestionOptions.insert(questionOption3);
 
-        let answer = new Answer(new Date(), null, questionId, questionOptionId);
+        let answer = new Answer(new Date(), null, questionId, questionOptionId, "AABBCCDDEEFF");
         Answers.insert(answer);
 
-        let answer2 = new Answer(new Date(), null, questionId, questionOptionId2);
+        let answer2 = new Answer(new Date(), null, questionId, questionOptionId2, "AABBCCDDEEFF");
         Answers.insert(answer2);
     }
 });
