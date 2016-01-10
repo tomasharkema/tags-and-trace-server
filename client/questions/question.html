@@ -7,9 +7,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">Options</div>
         <ul class="list-group">
-            {{#each question.options}}
+            {{#each options}}
                 <li class="list-group-item">
-                    {{ this }}
+                    {{ value }}
                 </li>
             {{/each}}
         </ul>
@@ -21,7 +21,7 @@
             {{#each answers}}
                 <li class="list-group-item" id="a-{{_id}}">
                     <a href="/answer/{{_id}}">
-                        {{ value }}
+                        {{ questionOption.value }}
                     </a>
                 </li>
             {{/each}}

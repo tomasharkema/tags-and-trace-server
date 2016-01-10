@@ -9,6 +9,7 @@ Meteor.startup(function() {
         Meteor.subscribe("incidents");
         Meteor.subscribe("workflows");
         Meteor.subscribe("questions");
+        Meteor.subscribe("questionoptions");
         Meteor.subscribe("ongoingIncidents");
         Meteor.subscribe("answers");
     });

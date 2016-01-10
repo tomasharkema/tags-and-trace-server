@@ -3,13 +3,16 @@
 class Answer {
     _id: string;
     value: string;
-    questionId: string;
     date: Date;
 
-    constructor(value: string, date: Date, questionId: string) {
+    questionOptionId: string;
+    questionId: string;
+
+    constructor(date: Date, value: string, questionId: string, questionOptionId: string) {
         this.value = value;
         this.date = date;
         this.questionId = questionId;
+        this.questionOptionId = questionOptionId;
     }
 }
 
