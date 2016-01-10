@@ -23,6 +23,12 @@ Meteor.startup(function() {
         let question2 = new Question("Is het object zwaar beschadigd?", workflowId2);
         let questionId2 = Questions.insert(question2);
 
+        let question3 = new Question("Zijn er specifieke kenmerken?", workflowId);
+        let questionId3 = Questions.insert(question3);
+
+        let question4 = new Question("Wat is de kleur?", workflowId2);
+        let questionId4 = Questions.insert(question4);
+
         let questionOption = new QuestionOption("Ja, in levensgevaar", questionId);
         let questionOptionId = QuestionOptions.insert(questionOption);
 
@@ -39,4 +45,3 @@ Meteor.startup(function() {
         Answers.insert(answer2);
     }
 });
-
