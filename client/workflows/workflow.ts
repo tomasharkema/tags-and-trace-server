@@ -60,8 +60,9 @@ Template['workflowNew'].events({
         event.preventDefault();
 
         var label: string = event.target.label.value;
+        var incidentId = event.target.incident.value;
 
-        var workflow = new Workflow(label, null);
+        var workflow = new Workflow(label, incidentId);
 
         Workflows.insert(workflow, function(err, id) {
             if (err) return console.error(err);
