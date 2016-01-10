@@ -68,6 +68,12 @@ Template['questionEdit'].helpers({
 });
 
 Template['questionEdit'].events({
+    "click #addOption": function(event) {
+        event.preventDefault();
+
+        var previous = questionOptionDraft.get();
+        questionOptionDraft.set(Utils.typedFlatten([previous, [new QuestionOption("DRAFT", FlowRouter.current().params['questionId'])]]))
+    },
     "submit .questionEdit": function(event) {
         var id = FlowRouter.current().params['questionId'];
         event.preventDefault();
