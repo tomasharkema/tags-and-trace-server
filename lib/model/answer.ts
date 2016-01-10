@@ -19,6 +19,14 @@ class Answer implements Nameable {
         this.questionOptionId = questionOptionId;
         this.deviceId = deviceId;
     }
+
+    getValue(): string {
+        if (this.value) {
+            return this.value
+        }
+
+        return QuestionOptions.findOne(this.questionOptionId).value
+    }
 }
 
 this.Answer = Answer;

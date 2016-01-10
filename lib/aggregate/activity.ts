@@ -23,8 +23,8 @@ class Activity {
         var workflows = Workflows.find({incidentId: incidentId})
             .map((workflow) => Questions.find({workflowId: workflow._id})
                 .map((question) => Answers.find({questionId: question._id})
-                    .map((answer) =>
-                        new Activity("/question/"+question._id+"#a-"+answer._id, answer.date, answer.deviceId + " heeft antwoord gegeven op "+question.label+": " + answer.value))));
+                    .map(answer => <Answer>cast(answer, Answer))
+                    .map((answer) => new Activity("/question/"+question._id+"#a-"+answer._id, answer.date, answer.deviceId + " heeft antwoord gegeven op " + question.label + ": " + answer.getValue()))));
 
             return _.sortBy(_.flatten(workflows), (ans) => ans.date).reverse()
     }
