@@ -1,0 +1,13 @@
+<template name="breadcrumb">
+    <ol class="breadcrumb">
+        {{#each parents}}
+            <li {{attributes}}>
+                {{#if active}}
+                    <a href="{{url}}">{{name}}</a>
+                {{else }}
+                    {{name}}
+                {{/if}}
+            </li>
+        {{/each}}
+    </ol>
+</template>

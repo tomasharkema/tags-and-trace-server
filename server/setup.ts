@@ -11,17 +11,23 @@ Meteor.startup(function() {
         let incident = new Incident("Orkaan Katrina", vandaag);
         let incidentId = Incidents.insert(incident);
 
-        let workflow = new Workflow("Algemene Kennis", incidentId);
+        let workflow = new Workflow("Persoon gevonden", incidentId);
         let workflowId = Workflows.insert(workflow);
 
-        let workflow2 = new Workflow("Van de server", incidentId);
+        let workflow2 = new Workflow("Object gevonden", incidentId);
         let workflowId2 = Workflows.insert(workflow2);
 
-        let question = new Question("Wat is 1+1?", null, workflowId);
+        let question = new Question("Is de persoon in levensgevaar?", ["true", "false"], workflowId);
         let questionId = Questions.insert(question);
 
-        let question2 = new Question("Wat is 1+1?", null, workflowId2);
+        let question2 = new Question("Is het object zwaar beschadigd?", ["true", "false"], workflowId2);
         let questionId2 = Questions.insert(question2);
+
+        let answer = new Answer("false", new Date(), questionId);
+        Answers.insert(answer);
+
+        let answer2 = new Answer("true", new Date(), questionId2);
+        Answers.insert(answer2);
     }
 });
 

@@ -3,6 +3,12 @@
 Template['incident'].helpers({
     incident: function() {
         return Incidents.findOne({ _id: FlowRouter.current().params['incidentId'] })
+    },
+    workflows: function() {
+        return Workflows.find({ incidentId: FlowRouter.current().params['incidentId'] });
+    },
+    activity: function() {
+        return Activity.forIncident(FlowRouter.current().params['incidentId'])
     }
 });
 

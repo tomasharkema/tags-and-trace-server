@@ -1,10 +1,12 @@
 // <reference path="../collections.ts"/>
 // <reference path="../../typings/tsd.d.ts"/>
-class Question {
+class Question implements Nameable {
     _id: string;
     label: string;
     options: Array<string>;
     workflowId: string;
+
+    __name__: string = "question";
 
     constructor(label:string, options:Array<string>, workflowId: string) {
         this.label = label;

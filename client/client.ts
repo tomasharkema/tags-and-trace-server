@@ -8,7 +8,9 @@ Meteor.startup(function() {
     Tracker.autorun(function() {
         Meteor.subscribe("incidents");
         Meteor.subscribe("workflows");
+        Meteor.subscribe("questions");
         Meteor.subscribe("ongoingIncidents");
+        Meteor.subscribe("answers");
     });
     GoogleMaps.load();
     if (Session.get(clientId) === undefined) {

@@ -1,5 +1,34 @@
 <template name="incident">
-    <h1>{{ incident.label }} <small><a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
+    {{>breadcrumb incident}}
+
+    <h1>{{ incident.label }} <small> — <a href="/incident/{{ incident._id }}/edit">Edit</a></small></h1>
+
+    <hr>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Activity</div>
+        <ul class="list-group">
+            {{#each activity}}
+                <li class="list-group-item">
+                    <a href="{{url}}">{{ title }} - <i>{{ livestamp date }}</i></a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">Workflows <small><a href="/incidents/new?incident={{ incident._id }}">New</a></small></div>
+        <ul class="list-group">
+            {{#each workflows}}
+                <li class="list-group-item">
+                    <a href="/workflow/{{_id}}">
+                        {{label}}
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+
 
 </template>
 
