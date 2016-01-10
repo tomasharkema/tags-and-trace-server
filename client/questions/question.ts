@@ -38,6 +38,9 @@ Template['questionEdit'].helpers({
     question: function() {
         return Questions.findOne({ _id: FlowRouter.current().params['questionId'] })
     },
+    workflows: function() {
+        return Workflows.find();
+    },
     optionsAndDrafts: function() {
         let questionId = FlowRouter.current().params['questionId'];
         return _.flatten([
