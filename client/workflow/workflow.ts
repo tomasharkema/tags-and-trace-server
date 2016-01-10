@@ -59,18 +59,3 @@ Template['workflowEdit'].events({
         }
     }
 });
-
-//Template['workflowNew'].events({
-//    "submit .workflowNew": function(event) {
-//        event.preventDefault();
-//
-//        var label: string = event.target.label.value;
-//
-//        var workflow = new Workflow(label, null);
-//
-//        Workflows.insert(workflow, function(err, id) {
-//            if (err) return console.error(err);
-//            FlowRouter.go("/workflow/" + id);
-//        });
-//    }
-//});
