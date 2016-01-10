@@ -1,5 +1,7 @@
 <template name="question">
 
+    {{> breadcrumb question }}
+
     <h1>{{ question.label }} <small> — <a href="/question/{{ question._id }}/edit">Edit</a></small></h1>
 
     <hr>

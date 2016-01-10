@@ -1,11 +1,13 @@
 <template name="breadcrumb">
     <ol class="breadcrumb">
-        {{#each parent}}
-            <!--{{> breadcrumb-element }}-->
+        {{#each parents}}
+            <li {{attributes}}>
+                {{#if active}}
+                    <a href="{{url}}">{{name}}</a>
+                {{else }}
+                    {{name}}
+                {{/if}}
+            </li>
         {{/each}}
     </ol>
-</template>
-
-<template name="breadcrumb-element">
-    <li {{ attributes }}></li>
 </template>

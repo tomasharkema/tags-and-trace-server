@@ -1,10 +1,12 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Incident {
+class Incident implements Nameable {
     _id: string;
     label: string;
     dateTimeStart: Date;
     dateTimeEnd: Date;
+
+    __name__: string = "incident";
 
     constructor(label: string, dateTimeStart: Date) {
         this.label = label;

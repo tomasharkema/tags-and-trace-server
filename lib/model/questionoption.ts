@@ -1,8 +1,10 @@
 
-class QuestionOption {
+class QuestionOption implements Nameable {
     _id: string;
     value: string;
     questionId: string;
+
+    __name__: string = "questionoption";
 
     constructor(value:string, questionId:string) {
         this.value = value;

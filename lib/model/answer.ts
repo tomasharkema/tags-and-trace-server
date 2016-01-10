@@ -1,12 +1,14 @@
 /// <reference path="../collections.ts"/>
 /// <reference path="../../typings/tsd.d.ts"/>
-class Answer {
+class Answer implements Nameable {
     _id: string;
     value: string;
     date: Date;
 
     questionOptionId: string;
     questionId: string;
+
+    __name__: string = "answer";
 
     constructor(date: Date, value: string, questionId: string, questionOptionId: string) {
         this.value = value;
