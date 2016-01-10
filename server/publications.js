@@ -16,3 +16,6 @@ Meteor.publish("ongoingIncidents", function () {
 Meteor.publish("answers", function () {
     return Answers.find({});
 });
+Meteor.publish("tagrecords", function() {
+    return TagRecords.find({});
+});
