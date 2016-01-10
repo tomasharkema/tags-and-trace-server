@@ -9,9 +9,9 @@
     <div class="panel panel-default">
         <div class="panel-heading">Options</div>
         <ul class="list-group">
-            {{#each question.options}}
+            {{#each options}}
                 <li class="list-group-item">
-                    {{ this }}
+                    {{ value }}
                 </li>
             {{/each}}
         </ul>
@@ -21,9 +21,9 @@
         <div class="panel-heading">Answers</div>
         <ul class="list-group">
             {{#each answers}}
-                <li class="list-group-item" id="a-{{_id}}">
-                    <a href="/answer/{{_id}}">
-                        {{ value }}
+                <li class="list-group-item" id="a-{{answer._id}}">
+                    <a href="/answer/{{answer._id}}">
+                        {{ questionOption.value }}
                     </a>
                 </li>
             {{/each}}
@@ -45,4 +45,45 @@
             {{/each}}
         </ul>
     </div>
+</template>
+
+<template name="questionEdit">
+    <form class="questionEdit form-horizontal">
+
+        <div class="form-group">
+            <label for="label" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" id="name" placeholder="label" value="{{ question.label }}">
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Options</div>
+            <ul class="list-group">
+                {{#each optionsAndDrafts}}
+                    <li class="list-group-item">
+                        <div class="form-group">
+                            <label for="label" class="col-sm-2 control-label">Option</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control option" placeholder="label" data-optionid="{{_id}}" value="{{ value }}">
+                            </div>
+                        </div>
+                    </li>
+                {{/each}}
+                <li class="list-group-item">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-info" id="addOption">Add a option</button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
 </template>

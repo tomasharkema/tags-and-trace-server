@@ -22,6 +22,10 @@ class Utils {
         return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
             s4() + '-' + s4() + s4() + s4();
     }
+
+    static typedFlatten<T>(items: T[][]): T[] {
+        return <T[]>_.flatten(items);
+    }
 }
 
 this.Utils = Utils;

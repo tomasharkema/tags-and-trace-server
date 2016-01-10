@@ -17,17 +17,31 @@ Meteor.startup(function() {
         let workflow2 = new Workflow("Object gevonden", incidentId);
         let workflowId2 = Workflows.insert(workflow2);
 
-        let question = new Question("Is de persoon in levensgevaar?", ["true", "false"], workflowId);
+        let question = new Question("Is de persoon in levensgevaar?", workflowId);
         let questionId = Questions.insert(question);
 
-        let question2 = new Question("Is het object zwaar beschadigd?", ["true", "false"], workflowId2);
+        let question2 = new Question("Is het object zwaar beschadigd?", workflowId2);
         let questionId2 = Questions.insert(question2);
 
-        let answer = new Answer("false", new Date(), questionId);
+        let question3 = new Question("Zijn er specifieke kenmerken?", workflowId);
+        let questionId3 = Questions.insert(question3);
+
+        let question4 = new Question("Wat is de kleur?", workflowId2);
+        let questionId4 = Questions.insert(question4);
+
+        let questionOption = new QuestionOption("Ja, in levensgevaar", questionId);
+        let questionOptionId = QuestionOptions.insert(questionOption);
+
+        let questionOption2 = new QuestionOption("Nee, maar wel zwaar gewond", questionId);
+        let questionOptionId2 = QuestionOptions.insert(questionOption2);
+
+        let questionOption3 = new QuestionOption("Nee, maar wel licht gewond", questionId);
+        let questionOptionId3 = QuestionOptions.insert(questionOption3);
+
+        let answer = new Answer(new Date(), null, questionId, questionOptionId, "AABBCCDDEEFF");
         Answers.insert(answer);
 
-        let answer2 = new Answer("true", new Date(), questionId2);
+        let answer2 = new Answer(new Date(), null, questionId, questionOptionId2, "AABBCCDDEEFF");
         Answers.insert(answer2);
     }
 });
-

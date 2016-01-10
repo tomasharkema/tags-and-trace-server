@@ -7,6 +7,9 @@ Meteor.publish("workflows", function () {
 Meteor.publish("questions", function () {
     return Questions.find({});
 });
+Meteor.publish("questionoptions", function () {
+    return QuestionOptions.find({});
+});
 Meteor.publish("ongoingIncidents", function () {
     return Utils.ongoingIncidents();
 });

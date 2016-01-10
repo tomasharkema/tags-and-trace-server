@@ -3,14 +3,11 @@
 class Question implements Nameable {
     _id: string;
     label: string;
-    options: Array<string>;
     workflowId: string;
-
     __name__: string = "question";
 
-    constructor(label:string, options:Array<string>, workflowId: string) {
+    constructor(label: string, workflowId: string) {
         this.label = label;
-        this.options = options;
         this.workflowId = workflowId;
     }
 }
