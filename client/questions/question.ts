@@ -50,34 +50,64 @@ Template['questionEdit'].helpers({
     },
 });
 
-Template['questionEdit'].events({
-    "click #addOption": function(event) {
-        event.preventDefault();
-
-        var previous = questionOptionDraft.get();
-        questionOptionDraft.set(Utils.typedFlatten([previous, [new QuestionOption("DRAFT", FlowRouter.current().params['questionId'])]]))
+Template['questionEdit'].helpers({
+    question: function() {
+        return Questions.findOne({ _id: FlowRouter.current().params['questionId'] })
     },
+    workflows: function() {
+        return Workflows.find();
+    },
+    incident: function() {
+        return Incidents.findOne(this.incidentId);
+    },
+    workflowSelected: function() {
+        var workflowId = FlowRouter.current().queryParams["workflow"];
+        var question = Questions.findOne({ _id: FlowRouter.current().params['questionId'] });
+        return this._id === workflowId || question.workflowId === this._id;
+    }
+});
+
+Template['questionEdit'].events({
     "submit .questionEdit": function(event) {
+        var id = FlowRouter.current().params['questionId'];
         event.preventDefault();
 
-        var id = FlowRouter.current().params['questionId'];
+        var label = event.target.label.value;
+        var workflow = event.target.workflow.value;
 
-        Questions.update(id, {$set: { label: $("#name").val() }});
+        var proceedWithId = function(_id) {
+            $(".option").each(function() {
+                console.log($(this).attr("data-optionid"));
+                var optionId = $(this).attr("data-optionid");
+                var val = $(this).val();
+                if (optionId) {
+                    QuestionOptions.update(optionId, {$set: {value: val}})
+                } else if (val !== "DRAFT") {
+                    var questionOption = new QuestionOption(val, _id);
+                    QuestionOptions.insert(questionOption);
+                }
+            });
 
-        $(".option").each(function() {
-            console.log($(this).attr("data-optionid"));
-            var optionId = $(this).attr("data-optionid");
-            var val = $(this).val();
-            if (optionId) {
-                QuestionOptions.update(optionId, {$set: {value: val}})
-            } else if (val !== "DRAFT") {
-                var questionOption = new QuestionOption(val, id);
-                QuestionOptions.insert(questionOption);
-            }
-        });
+            questionOptionDraft.set([]);
+        };
 
-        questionOptionDraft.set([]);
+        if (id) {
+            Questions.update({
+                _id: id
+            }, {$set: {
+                label: label,
+                workflowId: workflow
+            }});
+            proceedWithId(id);
+            FlowRouter.go("/question/" + id);
+        } else {
+            var question = new Question(label, workflow);
+            Questions.insert(question, function(err, id) {
+                if (err) return console.error(err);
+                proceedWithId(id);
+                FlowRouter.go("/question/" + id);
+            });
+        }
 
-        FlowRouter.go("/question/" + id);
     }
 });

@@ -12,6 +12,10 @@ class Workflow implements Nameable {
         this.label = label;
         this.incidentId = incidentId;
     }
+
+    public getIncident(): Incident {
+        return Incidents.findOne(this.incidentId);
+    }
 }
 
 this.Workflow = Workflow;
