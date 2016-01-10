@@ -12,7 +12,6 @@ Meteor.startup(function() {
         Meteor.subscribe("questionoptions");
         Meteor.subscribe("ongoingIncidents");
         Meteor.subscribe("answers");
-        Meteor.subscribe("tagrecords");
     });
     GoogleMaps.load();
     if (Session.get(clientId) === undefined) {

@@ -34,33 +34,54 @@
     </div>
 </template>
 
-<template name="workflowEdit">
-
-    {{>breadcrumb workflow}}
-
-    {{#if workflow}}
-        <h1>Edit {{workflow.label}}</h1>
-    {{else}}
-        <h1>New Workflow</h1>
-    {{/if}}
-
-    <hr>
-
-    <form class="workflowEdit form-horizontal">
+<template name="workflowNew">
+    <form class="workflowNew form-horizontal">
 
         <div class="form-group">
-            <label for="label" class="col-sm-2 control-label">Label</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="label" placeholder="Label" value="{{ workflow.label }}">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h2>New</h2>
+                <label for="label">Name</label>
+                <input type="text" class="form-control" id="label" placeholder="label">
             </div>
         </div>
 
         <div class="form-group">
-            <label for="incident" class="col-sm-2 control-label">Incident</label>
-            <div class="col-sm-10">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label for="sel1">Link to incident</label>
                 <select class="form-control" id="incident">
                     {{#each incidents}}
-                        <option value="{{_id}}" selected={{incidentSelected}}>{{label}}</option>
+                        <option value="{{_id}}">{{label}}</option>
+                    {{/each}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-default">Submit</button>
+            </div>
+        </div>
+    </form>
+</template>
+
+<template name="workflowEdit">
+
+    <form class="workflowEdit form-horizontal">
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <h2>Edit</h2>
+                <label for="label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="label" value="{{ workflow.label }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label for="sel1">Link to incident</label>
+                <select class="form-control" id="incident">
+                    {{#each incidents}}
+                        <option value="{{_id}}">{{label}}</option>
                     {{/each}}
                 </select>
             </div>
