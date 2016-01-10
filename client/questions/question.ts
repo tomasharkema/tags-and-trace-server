@@ -83,7 +83,6 @@ Template['questionEdit'].events({
 
         var proceedWithId = function(_id) {
             $(".option").each(function() {
-                console.log($(this).attr("data-optionid"));
                 var optionId = $(this).attr("data-optionid");
                 var val = $(this).val();
                 if (optionId) {
