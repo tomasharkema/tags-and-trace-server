@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "sourceMap": false,
+    "isolatedModules": false,
+    "noImplicitAny": true
+  },
+  "exclude": [
+    "typings"
+  ]
+}

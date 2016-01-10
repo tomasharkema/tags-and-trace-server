@@ -8,11 +8,12 @@ class Incident implements Nameable {
 
     __name__: string = "incident";
 
-    constructor(label: string, dateTimeStart: Date) {
+    constructor(label: string, dateTimeStart: Date, dateTimeEnd?: Date) {
         this.label = label;
         this.dateTimeStart = dateTimeStart;
-        this.dateTimeEnd = null;
+        this.dateTimeEnd = dateTimeEnd;
     }
+
 }
 
 this.Incident = Incident;

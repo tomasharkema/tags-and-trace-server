@@ -17,13 +17,18 @@
     </div>
 
     <div class="panel panel-default">
-        <div class="panel-heading">Workflows <small><a href="/incidents/new?incident={{ incident._id }}">New</a></small></div>
+        <div class="panel-heading">Workflows <a href="/workflows/new?incident={{ incident._id }}" class="btn btn-xs btn-default pull-right"><i class="glyphicon glyphicon-plus"></i></a></div>
         <ul class="list-group">
             {{#each workflows}}
                 <li class="list-group-item">
                     <a href="/workflow/{{_id}}">
                         {{label}}
                     </a>
+
+                    <div class="btn-group pull-right" role="group" aria-label="...">
+                        <a type="button" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-remove"></i></a>
+                        <a href="/workflow/{{_id}}/edit" type="button" class="btn btn-xs btn-default"><i class="glyphicon glyphicon-edit"></i></a>
+                    </div>
                 </li>
             {{/each}}
         </ul>
@@ -47,31 +52,46 @@
     </div>
 </template>
 
-<template name="incidentNew">
-    <form class="incidentNew form-horizontal">
-
-        <div class="form-group">
-            <label for="label" class="col-sm-2 control-label">Label</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="label" placeholder="label">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
-            </div>
-        </div>
-    </form>
-</template>
-
 <template name="incidentEdit">
+    {{>breadcrumb incident}}
+
+    {{#if incident}}
+        <h1>Edit {{incident.label}}</h1>
+    {{else}}
+        <h1>New Incident</h1>
+    {{/if}}
+    <hr>
+
     <form class="incidentEdit form-horizontal">
 
         <div class="form-group">
             <label for="label" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="label" value="{{ incident.label }}">
+                <input type="text" class="form-control" id="name" placeholder="Label" value="{{incident.label}}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="start" class="col-sm-2 control-label">Start Date</label>
+            <div class="col-sm-10">
+                <div class="input-group date datetimepicker" rel="{{incident.dateTimeStart}}">
+                    <input type='text' class="form-control" id="start"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="end" class="col-sm-2 control-label">Finish Date</label>
+            <div class="col-sm-10">
+                <div class="input-group date datetimepicker" rel="{{incident.dateTimeEnd}}">
+                    <input type='text' class="form-control" id="end"/>
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
             </div>
         </div>
 
@@ -88,4 +108,7 @@
             </div>
         </div>
     </form>
+
+    <hr>
+
 </template>

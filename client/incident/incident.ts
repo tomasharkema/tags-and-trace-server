@@ -24,45 +24,46 @@ Template['incidentEdit'].helpers({
     }
 });
 
-Template['incidentEdit'].events({
-    "submit .incidentEdit": function(event) {
-        var id = FlowRouter.current().params['incidentId'];
-
-        console.log("Submit", id);
-
-        event.preventDefault();
-
-        var label = event.target.label.value;
-
-        Incidents.update({
-            _id: id
-        }, { $set: {
-            label: label
-        }});
-
-        FlowRouter.go("/incident/" + id);
-    }
+Template['incidentEdit'].onRendered(function() {
+    this.autorun(function() {
+        $(".datetimepicker").each(function() {
+            $(this).datetimepicker({
+                defaultDate: $(this).attr('rel')
+            });
+        })
+    });
 });
 
-Template['incidentNew'].events({
-    "submit .incidentNew": function(event) {
+
+Template['incidentEdit'].events({
+    "submit .incidentEdit": function(event) {
         event.preventDefault();
 
-        var label = event.target.label.value;
+        var id = FlowRouter.current().params['incidentId'];
 
-//        console.log(label, Utils.guid);
+        var label = event.target.name.value.trim();
+        var dateTimeStart = event.target.start.value === "" ? null : new Date(event.target.start.value);
+        var dateTimeEnd = event.target.end.value === "" ? null : new Date(event.target.end.value);
 
-        if(label.trim().length != 0){
+        if (id) {
+            Incidents.update({
+                _id: id
+            }, {
+                $set: {
+                    label: label,
+                    dateTimeStart: dateTimeStart,
+                    dateTimeEnd: dateTimeEnd
+                }
+            });
 
-            var incident = new Incident(label, new Date());
+            FlowRouter.go("/incident/" + id);
+        } else {
 
+            var incident = new Incident(label, dateTimeStart === null ? new Date() : dateTimeStart, dateTimeEnd);
             Incidents.insert(incident, function(err, id) {
                 if (err) return console.error(err);
                 FlowRouter.go("/incident/" + id);
             });
-        }
-        else{
-            console.log("No input");
         }
     }
 });

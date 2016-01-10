@@ -48,12 +48,27 @@
 </template>
 
 <template name="questionEdit">
+
+
+    <hr>
+
     <form class="questionEdit form-horizontal">
 
         <div class="form-group">
-            <label for="label" class="col-sm-2 control-label">Name</label>
+            <label for="label" class="col-sm-2 control-label">Label</label>
             <div class="col-sm-10">
-                <input type="text" class="form-control" id="name" placeholder="label" value="{{ question.label }}">
+                <input type="text" class="form-control" id="label" placeholder="Label" value="{{ question.label }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="incident" class="col-sm-2 control-label">Incident</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="workflow">
+                    {{#each workflows}}
+                        <option value="{{_id}}" selected={{workflowSelected}}>{{label}} &dash; {{incident.label}}</option>
+                    {{/each}}
+                </select>
             </div>
         </div>
 

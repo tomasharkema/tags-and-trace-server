@@ -40,7 +40,6 @@ launch-screen@1.0.4
 less@2.5.1
 livedata@1.0.15
 logging@1.0.8
-manuel:reactivearray@1.0.5
 meteor@1.1.10
 meteor-base@1.0.1
 meteortypescript:compiler@2.0.12
@@ -68,6 +67,7 @@ standard-minifiers@1.0.2
 templating@1.1.5
 templating-tools@1.0.0
 tracker@1.0.9
+tsega:bootstrap3-datetimepicker@4.17.37_1
 u2622:persistent-session@0.4.4
 ui@1.0.8
 underscore@1.0.4
