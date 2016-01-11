@@ -16,20 +16,23 @@ this.GpsData = GpsData;
 class TagRecord implements Nameable {
     _id: string;
     dateRecorded: Date;
-    location: GpsData;
+    latitude: number;
+    longitude: number;
+    accuracy: number;
     tagId: string;
     deviceId: string;
-    answerIds: string[];
+    answers: string[];
 
     __name__: string = "tagrecord";
 
-
-    constructor(dateRecorded:Date, location:GpsData, tagId:string, deviceId:string, answerIds:string[]) {
+    constructor(dateRecorded:Date, latitude:number, longitude:number, accuracy:number, tagId:string, deviceId:string, answers:string[]) {
         this.dateRecorded = dateRecorded;
-        this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.accuracy = accuracy;
         this.tagId = tagId;
         this.deviceId = deviceId;
-        this.answerIds = answerIds;
+        this.answers = answers;
     }
 }
 
