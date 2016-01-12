@@ -14,6 +14,7 @@ var nuke = function() {
     Questions.remove({});
     QuestionOptions.remove({});
     Answers.remove({});
+    TagRecords.remove({});
 
     var vandaag:Date = new Date();
     var later:Date = new Date();
