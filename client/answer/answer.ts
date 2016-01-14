@@ -7,20 +7,13 @@ var getTagRecord = function() {
     return TagRecords.findOne({answers: FlowRouter.current().params['answerId']});
 };
 
-this.map = null;
-GoogleMaps.ready('answerLocationMap', function(map) {
-    this.map = map;
-});
-
 Template['answer'].onCreated(function() {
     this.autorun(function() {
-        console.log("AUTORUN", getTagRecord());
         GoogleMaps.ready('answerLocationMap', function(map) {
-            console.log("loaded AUTORUN", getTagRecord());
             let tagrecord = getTagRecord();
-            let marker = new google.maps.Marker({
+            new google.maps.Marker({
                 position: new google.maps.LatLng(tagrecord.latitude, tagrecord.longitude),
-                map: this.map.instance,
+                map: map.instance,
                 title: 'Hello World!',
                 draggable: true
             });
