@@ -6,16 +6,18 @@
 
     <hr>
 
-    <div class="panel panel-default">
-        <div class="panel-heading">Options</div>
-        <ul class="list-group">
-            {{#each options}}
-                <li class="list-group-item">
-                    {{ value }}
-                </li>
-            {{/each}}
-        </ul>
-    </div>
+    {{#if hasOptions}}
+        <div class="panel panel-default">
+            <div class="panel-heading">Options</div>
+            <ul class="list-group">
+                {{#each options}}
+                    <li class="list-group-item">
+                        {{ value }}
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+    {{/if}}
 
     <div class="panel panel-default">
         <div class="panel-heading">Answers</div>
@@ -23,7 +25,7 @@
             {{#each answers}}
                 <li class="list-group-item" id="a-{{answer._id}}">
                     <a href="/answer/{{answer._id}}">
-                        {{ questionOption.value }}
+                        {{ value }}
                     </a>
                 </li>
             {{/each}}
