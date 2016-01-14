@@ -30,7 +30,7 @@ class Activity {
                     return Answers.find({$and: [{_id: {$in: t.answers}}, {questionId: question._id}]}).map((a) => {
                         let answer = cast<Answer>(a, Answer);
                         return new Activity(
-                            "/question/"+question._id+"#a-"+answer._id,
+                            "/answer/"+answer._id,
                             t.dateRecorded, tag.deviceId + " heeft antwoord gegeven op een vraag",
                             question.label  + " " +answer.getValue());
                     });

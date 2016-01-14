@@ -39,6 +39,16 @@ Template['breadcrumb'].helpers({
             elements.push(new Breadcrumb(question.label, "/question/"+question._id, false));
         }
 
+        var answer = cast<Answer>(this, Answer);
+        if (answer) {
+            var question = Questions.findOne(answer.questionId);
+            var workflow = Workflows.findOne(question.workflowId);
+            var incident = Incidents.findOne(workflow.incidentId);
+            elements.push(new Breadcrumb(incident.label, "/incident/"+incident._id, true));
+            elements.push(new Breadcrumb(workflow.label, "/workflow/"+workflow._id, true));
+            elements.push(new Breadcrumb(question.label, "/question/"+question._id, false));
+        }
+
         return elements
     },
     attributes: function() {
