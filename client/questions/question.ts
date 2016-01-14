@@ -6,11 +6,16 @@ Template['question'].helpers({
     options: function() {
         return QuestionOptions.find({ questionId: FlowRouter.current().params['questionId'] })
     },
+    hasOptions: function() {
+        return QuestionOptions.find({ questionId: FlowRouter.current().params['questionId'] }).count() > 0
+    },
     answers: function() {
-        return Answers.find({ questionId: FlowRouter.current().params['questionId'] }).map(function(answer) {
+        return Answers.find({ questionId: FlowRouter.current().params['questionId'] }).map(function(a) {
+            let answer = cast<Answer>(a, Answer);
             return {
                 answer: answer,
-                questionOption: QuestionOptions.findOne({ _id: answer.questionOptionId })
+                questionOption: QuestionOptions.findOne({ _id: answer.questionOptionId }),
+                value: answer.getValue()
             }
         });
     }

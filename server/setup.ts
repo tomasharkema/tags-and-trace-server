@@ -14,7 +14,8 @@ var nuke = function() {
     Questions.remove({});
     QuestionOptions.remove({});
     Answers.remove({});
-
+    TagRecords.remove({});
+    
     var vandaag:Date = new Date();
     var later:Date = new Date();
     later.setFullYear(vandaag.getFullYear() + 10);
@@ -49,11 +50,14 @@ var nuke = function() {
     let questionOption3 = new QuestionOption("Nee, maar wel licht gewond", questionId);
     let questionOptionId3 = QuestionOptions.insert(questionOption3);
 
-    let answer = new Answer(new Date(), null, questionId, questionOptionId, "AABBCCDDEEFF");
-    Answers.insert(answer);
+    let answer = new Answer(null, questionId, questionOptionId);
+    let answerId = Answers.insert(answer);
 
-    let answer2 = new Answer(new Date(), null, questionId, questionOptionId2, "AABBCCDDEEFF");
-    Answers.insert(answer2);
+    let answer2 = new Answer(null, questionId, questionOptionId2);
+    let answerId2 = Answers.insert(answer2);
+
+    let tagRecord = new TagRecord(new Date(), 52.0, 4.0, 1.0, "ABCDEF", "ABCDEF", [answerId, answerId2]);
+    TagRecords.insert(tagRecord);
 };
 
 Meteor.methods({
