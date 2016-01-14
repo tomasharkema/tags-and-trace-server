@@ -1,3 +1,14 @@
 <template name="answer">
 
+    {{> breadcrumb answer}}
+
+    <h1>{{question.label}}</h1>
+    <hr>
+    <blockquote>{{value}}</blockquote>
+    <hr>
+    <div class="map-container">
+        {{> googleMap name="answerLocationMap" options=answerMapOptions}}
+    </div>
+    <p>TagID: {{tagrecord.tagId}}</p>
+    <p>DeviceID: {{tagrecord.deviceId}}</p>
 </template>
