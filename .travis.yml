@@ -7,6 +7,9 @@ before_install:
 
 before_script:
   - "export PATH=$HOME/.meteor:$PATH"
+  - "npm install mupx"
+  - "which npm"
 
-after_success:
-  - "mupx"
+env: TEST_COMMAND=mupx
+
+script: "mupx deploy"
